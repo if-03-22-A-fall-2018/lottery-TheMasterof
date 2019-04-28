@@ -12,14 +12,23 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "lottery.h"
 
 #define 	UUID_LEN   40
 #define 	MAX_TIP_LEN   17
 #define 	MAX_LINE_LEN   (UUID_LEN + 1 + MAX_TIP_LEN + 1)
 
+struct current_file {
+  FILE* fd;
+  char csv_separator;
+};
+
 bool 	init_lottery (const char *csv_file, char csv_separator){
-return true;
+  Current_file current_file = (Current_file)malloc(sizeof(struct current_file));
+  FILE* fd = fopen(csv_file, "r");
+  current_file->csv_separator = csv_separator;
+  return fd;
 }
 
 bool 	get_tip (int tip_number, int tip[TIP_SIZE]){

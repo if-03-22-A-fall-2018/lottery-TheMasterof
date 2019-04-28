@@ -14,6 +14,8 @@
 #define ___LOTTERY_H
 #define   TIP_SIZE 6
 
+typedef struct current_file* Current_file;
+
 bool 	init_lottery (const char *csv_file, char csv_separator);
 bool 	get_tip (int tip_number, int tip[TIP_SIZE]);
 bool 	set_drawing (int drawing_numbers[TIP_SIZE]);
